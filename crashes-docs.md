@@ -60,47 +60,82 @@ Appcenter.Crashes.lastSessionCrashReport(success, error);
 
 ## Customize your usage of App Center Crashes
 
-App Center Crashes provides callbacks for developers to perform additional actions before and when sending crash logs to App Center.
+App Center Crashes provides abilities for developers to perform additional actions before and when sending crash logs to App Center.
 
 ### Processing crashes in JavaScript
 
-You can configure SDK whether or not to send crash reports automatically or process crashes in JavaScript by changing preference `APPCENTER_CRASHES_ALWAYS_SEND` value in `config.xml`. To process crashes in JavaScript set it to `false` so any of the `Crash.setListener` methods will be working as expected.
+You can configure SDK whether or not to send crash reports automatically or process crashes in JavaScript by changing preference `APPCENTER_CRASHES_ALWAYS_SEND` value in `config.xml`. To process crashes in JavaScript set it to `false`.
 
 ```xml
 <preference name="APPCENTER_CRASHES_ALWAYS_SEND" value="false" />
 ```
 
-All the different callbacks of the event listener are discussed one by one in this document, but you need to set one event listener that define all callbacks at once.
+Then you can use `AppCenter.Crashes.process(processFunction, errorCallback)` method to customize crashes procession.
 
 ### Should the crash be processed?
 
-TODO - check if it was implemented for cordova
-
-Implement this callback if you'd like to decide if a particular crash needs to be processed or not. For example, there could be a system level crash that you'd want to ignore and that you don't want to send to App Center.
+Pass `false` to the `sendCallback` if you'd like to decide if a particular crash needs to be processed or not. For example, there could be a system level crash that you'd want to ignore and that you don't want to send to App Center.
 
 ```js
-Crashes.setListener({
+var errorCallback = function(error) {
+    console.error(error);
+};
 
-    shouldProcess: function (report) {
-        return true; // return true if the crash report should be processed, otherwise false.
-    },
+var processFunction = function(attachments, sendCallback) {
+    sendCallback(false); //crash will not be sent
+};
 
-    // Other callbacks must also be defined at the same time if used.
-    // Default values are used if a method with return parameter is not defined.
-});
+AppCenter.Crashes.process(processFunction, errorCallback);
 ```
 
-### Ask for the users' consent to send a crash log
+Otherwise, pass `true` to the `sendCallback` so crash will be sent.
 
-TODO - check if it was implemented for cordova
+```js
+var errorCallback = function(error) {
+    console.error(error);
+};
 
-### Get information about the sending status for a crash log
+var processFunction = function(attachments, sendCallback) {
+    sendCallback(true); //crash will be sent
+};
 
-TODO - check if it was implemented for cordova
+AppCenter.Crashes.process(processFunction, errorCallback);
+```
+
+> Note
+>
+> To use that feature you need to set `APPCENTER_CRASHES_ALWAYS_SEND` preference value in `config.xml` to `false`.
+>
+> This feature is thus dependent on [Processing crashes](#process) in JavaScript.
 
 ### Add attachments to a crash report
 
-TODO - check if it was implemented for cordova
+You can add **one binary** and **one text** attachment to a crash report. The SDK will send it along with the crash so that you can see it in App Center portal. The following callback will be invoked if you want to add attachments to a crash report. Here is an example to attach a text and an image to a crash:
+
+```js
+var errorCallback = function(error) {
+    console.error(error);
+};
+
+var processFunction = function(attachments, sendCallback) {
+    attachments.addTextAttachment('Hello text attachment!', 'hello.txt');
+    var imageAsBase64string = '...';
+    attachments.addBinaryAttachment(imageAsBase64string, 'logo.png', 'image/png');
+    sendCallback(true); //crash will be sent
+};
+
+AppCenter.Crashes.process(processFunction, errorCallback);
+```
+
+> Note
+>
+> To use that feature you need to set `APPCENTER_CRASHES_ALWAYS_SEND` preference value in `config.xml` to `false`.
+>
+> This feature is thus dependent on [Processing crashes](#process) in JavaScript.
+
+> Note
+>
+> The size limit is currently 1.4 MB on Android and 7 MB on iOS. Attempting to send a larger attachment will trigger an error.
 
 ## Enable or disable App Center Crashes at runtime
 
