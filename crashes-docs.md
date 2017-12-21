@@ -106,7 +106,7 @@ AppCenter.Crashes.process(processFunction, errorCallback);
 >
 > To use this feature you need to set `APPCENTER_CRASHES_ALWAYS_SEND` preference value in `config.xml` to `false`.
 >
-> This feature is thus dependent on [Processing crashes](#process) in JavaScript.
+> This feature is thus dependent on [Processing crashes__TODO_MAKE_SURE_THIS_LINK_IS_WORKING_ON_PRODUCTION](#processing-crashes-in-javascript) in JavaScript.
 
 ### Add attachments to a crash report
 
@@ -131,7 +131,7 @@ AppCenter.Crashes.process(processFunction, errorCallback);
 >
 > To use that feature you need to set `APPCENTER_CRASHES_ALWAYS_SEND` preference value in `config.xml` to `false`.
 >
-> This feature is thus dependent on [Processing crashes](#process) in JavaScript.
+> This feature is thus dependent on [Processing crashes__TODO_MAKE_SURE_THIS_LINK_IS_WORKING_ON_PRODUCTION](#processing-crashes-in-javascript) in JavaScript.
 
 > Note
 >
