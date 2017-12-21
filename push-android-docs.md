@@ -20,7 +20,7 @@ In the [Firebase Console](https://console.firebase.google.com/), go to **Project
 
 ## Add App Center Push to your app
 
-Please follow the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application, yet. The App Center SDK is designed with a modular approach – you only need to integrate the services that you're interested in.
+Please follow the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application yet. The App Center SDK is designed with a modular approach – you can integrate only those services that you're interested in.
 
 To add App Center Push to your app open a Terminal and navigate to the root of your Cordova project, then enter the following to add App Center Push to the app:
 
@@ -30,13 +30,13 @@ cordova plugin add cordova-plugin-appcenter-push
 
 ## Set the Sender ID
 
-The App Center Push SDK requires the **Sender ID** obtained in the "Prerequisites" section. Add following preference to `android` platform in your `config.xml`:
+App Center Push SDK requires the **Sender ID** obtained in the "Prerequisites" section. Add following preference to `android` platform in your `config.xml`:
 
 ```js
 <preference name="FIREBASE_SENDER_ID" value="{Your Sender ID}" />
 ```
 
-Make sure that you have replaced `{Your Sender ID}` with the **Sender ID** obtained in the "Prerequisites" section. Please check out the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application, yet.
+Make sure that you have replaced `{Your Sender ID}` with the **Sender ID** obtained in the "Prerequisites" section. Please check out the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application yet.
 
 ## Intercept push notifications
 
@@ -114,7 +114,7 @@ AppCenter.Push.setEnabled(true, enableSuccess, error); // Re-enable it
 
 ## Check if App Center Push is enabled
 
-You can also check if App Center Push is enabled or not:
+You can also check whether App Center Push is enabled:
 
 ```js
 var success = function(result) {
