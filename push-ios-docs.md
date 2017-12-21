@@ -1,6 +1,6 @@
 # App Center Push
 
-App Center Push enables you to send push notifications to users of your app from the App Center portal.
+App Center Push enables you to send push notifications to your app users from the App Center portal.
 
 ## Prerequisite - Enable Apple Push Notifications service (APNs) for your app
 
@@ -8,7 +8,7 @@ Configure Apple Push Notifications service (APNs) for your app from your Apple d
 
 ### Enable push notifications on your application
 
-In Xcode's project editor, choose your target and click **Capabilities**. In the **Push Notifications** section, click the switch to turn it from OFF to ON.
+In Xcode's project editor, choose your target and click **Capabilities**. In the **Push Notifications** section, click the switch to turn it ON.
 
 ![enable-push-capability](https://docs.microsoft.com/en-us/appcenter/sdk/push/images/apple-enable-push-capability.png)
 
@@ -50,25 +50,25 @@ Log in to the App Center portal, select your application, click on the **Push** 
 
       ![apple-dev-center-confirm-auth-key](https://docs.microsoft.com/en-us/appcenter/sdk/push/images/ios-confirm-auth-key-apple-portal.png)
 
-  3. Push Token
+  3. **Push Token**
 
       * Open your key file with a text editor and copy the authentication token it contains.
 
       ![auth-key-file](https://docs.microsoft.com/en-us/appcenter/sdk/push/images/apple-auth-key-file.png)
 
-      * On the App Center push settings, paste this token to the Push Token field then click Done to complete this configuration.
+      * In the App Center push settings, paste this token to the Push Token field then click Done to complete this configuration.
 
 For more information, refer to the [Apple documentation](http://help.apple.com/xcode/mac/current/#/dev11b059073).
 
 #### [Optional] Enable silent notifications
 
-Silent notifications give you a way to wake up your app so that it can refresh its data in the background (see [Apple documentation](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW8)). To enable silent notifications open Xcode's project editor, choose your target and click **Capabilities**. Turn on **Background Modes** and check the **Remote notifications** checkbox.
+Silent notifications give you a way to wake up your app so that it can refresh its data in the background (see [Apple documentation](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW8)). To enable silent notifications, open Xcode's project editor, choose your target and click **Capabilities**. Turn on **Background Modes** and check the **Remote notifications** checkbox.
 
 ![enable-silent-notifications](https://docs.microsoft.com/en-us/appcenter/sdk/push/images/ios-enable-silent-notifications.png)
 
 ## Add App Center Push to your app
 
-Please follow the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application, yet. The App Center SDK is designed with a modular approach – you only need to integrate the services that you're interested in.
+Please follow the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application yet. The App Center SDK is designed with a modular approach – you can integrate only those services that you're interested in.
 
 To add App Center Push to your app open a Terminal and navigate to the root of your Cordova project, then enter the following to add App Center Push to the app:
 
@@ -78,7 +78,7 @@ cordova plugin add cordova-plugin-appcenter-push
 
 ## Intercept push notifications
 
-You can set up a listener to be notified whenever a push notification is received in foreground or a background push notification has been tapped by the user. The listener may also be woken up when a notification is received in background if you have enable [silent notifications](https://docs.microsoft.com/en-us/appcenter/sdk/push/react-native-ios#optional-enable-silent-notifications) and if the payload of the notification contains the [content-available](https://docs.microsoft.com/en-us/appcenter/push/index#custom-data-in-your-notifications) flag set to true.
+You can set up a listener to be notified whenever a push notification is received in foreground or a background push notification has been tapped by the user. The listener may also be woken up when a notification is received in background if you have enabled [silent notifications](https://docs.microsoft.com/en-us/appcenter/sdk/push/react-native-ios#optional-enable-silent-notifications) and if the payload of the notification contains the [content-available](https://docs.microsoft.com/en-us/appcenter/push/index#custom-data-in-your-notifications) flag set to true.
 
 > Note
 >
@@ -146,7 +146,7 @@ AppCenter.Push.setEnabled(true, enableSuccess, error); // Re-enable it
 
 ## Check if App Center Push is enabled
 
-You can also check if App Center Push is enabled or not:
+You can also check whether App Center Push is enabled:
 
 ```js
 var success = function(result) {
