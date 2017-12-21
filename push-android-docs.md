@@ -20,7 +20,7 @@ In the [Firebase Console](https://console.firebase.google.com/), go to **Project
 
 ## Add App Center Push to your app
 
-Please follow the [Get started_TODO]() section if you haven't set up and started the SDK in your application yet. The App Center SDK is designed with a modular approach – you can integrate only those services that you're interested in.
+Please follow the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application yet. The App Center SDK is designed with a modular approach – you can integrate only those services that you're interested in.
 
 To add App Center Push to your app open a Terminal and navigate to the root of your Cordova project, then enter the following to add App Center Push to the app:
 
@@ -36,7 +36,7 @@ App Center Push SDK requires the **Sender ID** obtained in the "Prerequisites" s
 <preference name="FIREBASE_SENDER_ID" value="{Your Sender ID}" />
 ```
 
-Make sure that you have replaced `{Your Sender ID}` with the **Sender ID** obtained in the "Prerequisites" section. Please check out the [Get started_TODO]() section if you haven't set up and started the SDK in your application yet.
+Make sure that you have replaced `{Your Sender ID}` with the **Sender ID** obtained in the "Prerequisites" section. Please check out the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application yet.
 
 ## Intercept push notifications
 
@@ -55,8 +55,6 @@ You can set up a listener to be notified whenever a push notification is receive
 > The background notification click callback does **NOT** expose **title** and **message**. **Title** and **message** are only available in **foreground** pushes.
 
 You need to register the listener when your app starts. A convenient place to do that is at `app.onDeviceReady` method of your `js/index.js:
-
-**TODO CHECK EXAMPLE IS RIGHT**
 
 ```js
 var app = {
