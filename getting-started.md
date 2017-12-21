@@ -108,7 +108,7 @@ cordova run android
 >
 > You can launch it on an **android emulator** or **android device** by specifying the device id in 
 >
-> `cordova run android --target "myDeviceId"` (`deviceId` can be retrieved using `adb devices` command).
+> `cordova run android --target="myDeviceId"` (`deviceId` can be retrieved using `adb devices` command).
 
 ## 5.2 Build and run your application from Xcode or Android Studio
 
