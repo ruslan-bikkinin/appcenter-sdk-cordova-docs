@@ -41,7 +41,7 @@ Once you have created an app, you can obtain its **App Secret** on the **Getting
     cordova plugin add cordova-plugin-appcenter-push
     ```
 
-	The App Center SDK uses a modular approach, where you just add the modules for App Center services that you want to use. **cordova-plugin-appcenter-analytics** and **cordova-plugin-appcenter-crashes** make sense to add to almost every app, as they provide value with no additional setup required. **appcenter** provides general purpose App Center [APIs__REFER_TO_Sdk\Other APIs\Cordova](), useful for multiple services.
+	The App Center SDK uses a modular approach, where you just add the modules for App Center services that you want to use. **cordova-plugin-appcenter-analytics** and **cordova-plugin-appcenter-crashes** make sense to add to almost every app, as they provide value with no additional setup required.
 
 2.  Link the plugins to the Cordova app
 
