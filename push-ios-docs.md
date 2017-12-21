@@ -68,7 +68,7 @@ Silent notifications give you a way to wake up your app so that it can refresh i
 
 ## Add App Center Push to your app
 
-Please follow the [Get started_TODO]() section if you haven't set up and started the SDK in your application, yet. The App Center SDK is designed with a modular approach – you only need to integrate the services that you're interested in.
+Please follow the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application, yet. The App Center SDK is designed with a modular approach – you only need to integrate the services that you're interested in.
 
 To add App Center Push to your app open a Terminal and navigate to the root of your Cordova project, then enter the following to add App Center Push to the app:
 
