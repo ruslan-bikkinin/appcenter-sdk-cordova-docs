@@ -41,7 +41,7 @@ var error = function(error) {
 Appcenter.Crashes.hasCrashedInLastSession(success, error);
 ```
 
-This comes in handy in case you want to adjust the behavior or UI of your app after a crash has occured. Some developers chose to show additional UI to apologize to their users, or want way to get in touch after a crash has occured.
+This comes in handy in case you want to adjust the behavior or UI of your app after a crash has occured. Some developers may want to show something to apologize to their users, or to get in touch after a crash has occured.
 
 ### Details about the last crash
 
@@ -64,7 +64,7 @@ App Center Crashes provides abilities for developers to perform additional actio
 
 ### Processing crashes in JavaScript
 
-You can configure SDK whether or not to send crash reports automatically or process crashes in JavaScript by changing preference `APPCENTER_CRASHES_ALWAYS_SEND` value in `config.xml`. To process crashes in JavaScript set it to `false`.
+You can configure SDK to send crash reports automatically or process crashes in JavaScript by changing preference `APPCENTER_CRASHES_ALWAYS_SEND` value in `config.xml`. To process crashes in JavaScript set it to `false`.
 
 ```xml
 <preference name="APPCENTER_CRASHES_ALWAYS_SEND" value="false" />
@@ -88,7 +88,7 @@ var processFunction = function(attachments, sendCallback) {
 AppCenter.Crashes.process(processFunction, errorCallback);
 ```
 
-Otherwise, pass `true` to the `sendCallback` so crash will be sent.
+Otherwise, pass `true` to the `sendCallback` function, and the crash will be sent.
 
 ```js
 var errorCallback = function(error) {
@@ -104,13 +104,13 @@ AppCenter.Crashes.process(processFunction, errorCallback);
 
 > Note
 >
-> To use that feature you need to set `APPCENTER_CRASHES_ALWAYS_SEND` preference value in `config.xml` to `false`.
+> To use this feature you need to set `APPCENTER_CRASHES_ALWAYS_SEND` preference value in `config.xml` to `false`.
 >
 > This feature is thus dependent on [Processing crashes](#process) in JavaScript.
 
 ### Add attachments to a crash report
 
-You can add **one binary** and **one text** attachment to a crash report. The SDK will send it along with the crash so that you can see it in App Center portal. The following callback will be invoked if you want to add attachments to a crash report. Here is an example to attach a text and an image to a crash:
+You can add **one binary** and **one text** attachment to a crash report. The SDK will send it along with the crash so that you can see it in App Center portal. The following callback will be invoked if you want to add attachments to a crash report. Here is an example on how to attach a text and an image to a crash:
 
 ```js
 var errorCallback = function(error) {
@@ -167,7 +167,7 @@ AppCenter.Crashes.setEnabled(true, success, error);
 
 ## Check if App Center Crashes is enabled
 
-You can also check if App Center Crashes is enabled or not:
+You can also check whether App Center Crashes is enabled:
 
 ```js
 var success = function(result) {
