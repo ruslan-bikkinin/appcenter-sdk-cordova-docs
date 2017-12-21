@@ -41,13 +41,13 @@ Once you have created an app, you can obtain its **App Secret** on the **Getting
     cordova plugin add cordova-plugin-appcenter-push
     ```
 
-	The App Center SDK uses a modular approach, where you just add the modules for App Center services that you want to use. **cordova-plugin-appcenter-analytics** and **cordova-plugin-appcenter-crashes** make sense to add to almost every app, as they provide value with no additional setup required.
+	The App Center SDK uses a modular approach, where you add only those modules that you want to use. It makes sense to add **cordova-plugin-appcenter-analytics** and **cordova-plugin-appcenter-crashes** almost to every app, as they provide information without any additional setup required.
 
 2.  Link the plugins to the Cordova app
 
-    To get it working in your app you will need to add some configuration values to your app configuration in `config.xml` file. See list of available parameters below
+    To get it working in your app you will need to add some configuration values to your app `config.xml` file. See list of available parameters below
 
-- `APP_SECRET` - _(required)_ App secret which enables App Center to map this app to the right user account
+- `APP_SECRET` - _(required)_ App secret enables App Center to map this app to the right user account
 
   Example:
 
@@ -64,7 +64,7 @@ Once you have created an app, you can obtain its **App Secret** on the **Getting
 
 ## 4. Configuration Preferences 
 
-- `APPCENTER_ANALYTICS_ENABLE_IN_JS` - _(optional, default is "false")_ This preference controls whether Analytics will be enabled automatically (default option) or will require call to `Analytics.setEnabled()` in JS code before sending any usage data to App Center portal. This might be useful e.g. in case when an application may want to ask users whether they want to share analytics information. [Learn more about sending user events manually__TODO_REFER_TO_Sdk\Anaytics\Cordova]().
+- `APPCENTER_ANALYTICS_ENABLE_IN_JS` - _(optional, default is "false")_ This preference controls whether Analytics will be enabled automatically (default option) or will require `Analytics.setEnabled()` to be called in JS code before sending any data about app usage to App Center portal. This might be useful e.g. in case when you want to ask users whether they want to share analytics information before sending it. [Learn more about sending user events manually__TODO_REFER_TO_Sdk\Anaytics\Cordova]().
 
   Example:
 
@@ -72,7 +72,7 @@ Once you have created an app, you can obtain its **App Secret** on the **Getting
   <preference name="APPCENTER_ANALYTICS_ENABLE_IN_JS" value="true" />
   ```
 
-- `APPCENTER_CRASHES_ALWAYS_SEND` - _(optional, default is "true")_ Specifies whether crash reports will always be sent automatically or would be available for processing in JavaScript  code. Opting to process crashes first means more work for the developer, but greater control over user privacy and allows you to attach a message with a crash report. [Learn more about processing on crash reports in JS__TODO_REFER_TO_Sdk\Crashes\Cordova]().
+- `APPCENTER_CRASHES_ALWAYS_SEND` - _(optional, default is "true")_ Specifies whether crash reports will be sent automatically or not, in the latter case they would be available for processing in JavaScript code. Choosing to process crashes first of all means more work for the developer, but it also provides greater control over user privacy and allows you to attach a message with crash report. [Learn more about processing on crash reports in JS__TODO_REFER_TO_Sdk\Crashes\Cordova]().
 
   Example:
 
@@ -82,11 +82,11 @@ Once you have created an app, you can obtain its **App Secret** on the **Getting
   
 ## 5. Start the SDK
 
-Now you can build and launch your application either from command line or Xcode/Android Studio.
+Now you can build and launch your application either from command line or from Xcode/Android Studio.
 
 ## 5.1 Build and run your application from command line
 
-You may build and launch your iOS application by the following command:
+You may build and launch your _iOS_ application using the following command:
 
 ```shell
 cordova run ios
@@ -98,7 +98,7 @@ cordova run ios
 >
 > `cordova run ios --target="myDeviceName".`
 
-You may build and launch your Android application by the following command:
+You may build and launch your _Android_ application using the following command:
 
 ```shell
 cordova run android
@@ -108,12 +108,12 @@ cordova run android
 >
 > You can launch it on an **android emulator** or **android device** by specifying the device id in 
 >
-> `cordova run android --target "myDeviceId"` (`deviceId` from `adb devices` command).
+> `cordova run android --target "myDeviceId"` (`deviceId` can be retrieved using `adb devices` command).
 
 ## 5.2 Build and run your application from Xcode or Android Studio
 
-For iOS, open your `ios/{appname}.xcworkspace` in Xcode and build from there.
+For iOS, open your **ios** application (`ios/{appname}.xcworkspace`) in Xcode and build it from there.
 
-For Android, import your **android** project in Android Studio and build from there.
+For Android, open your **android** project in Android Studio and build it from there.
 
-Great, you are all set to visualize Analytics and Crashes data on the portal that the SDK collects automatically. There is no additional setup required. Look at [Analytics__TODO_REFER_TO_Sdk\Analytics\Cordova]() and [Crashes__TODO_REFER_TO_Sdk\Crashes\Cordova]() section for APIs guides and walkthroughs to learn what App Center can do.
+Great, you are all set to visualize Analytics and Crashes data collected automatically by the SDK on the portal. There is no additional setup required. Look at [Analytics__TODO_REFER_TO_Sdk\Analytics\Cordova]() and [Crashes__TODO_REFER_TO_Sdk\Crashes\Cordova]() sections for APIs guides and walkthroughs to learn what App Center can do.
