@@ -30,7 +30,13 @@ cordova plugin add cordova-plugin-appcenter-push
 
 ## Set the Sender ID
 
-TODO implement in cordova then update this section
+The App Center Push SDK requires the **Sender ID** obtained in the "Prerequisites" section. Add following preference to `android` platform in your `config.xml`:
+
+```js
+<preference name="FIREBASE_SENDER_ID" value="{Your Sender ID}" />
+```
+
+Make sure that you have replaced `{Your Sender ID}` with the **Sender ID** obtained in the "Prerequisites" section. Please check out the [Get started_TODO]() section if you haven't set up and started the SDK in your application, yet.
 
 ## Intercept push notifications
 
@@ -48,52 +54,39 @@ You can set up a listener to be notified whenever a push notification is receive
 >
 > The background notification click callback does **NOT** expose **title** and **message**. **Title** and **message** are only available in **foreground** pushes.
 
-You need to register the listener when your app starts. A convenient place to do that is at `app.initialize` method of your `js/index.js:
+You need to register the listener when your app starts. A convenient place to do that is at `app.onDeviceReady` method of your `js/index.js:
 
 **TODO CHECK EXAMPLE IS RIGHT**
 
 ```js
 var app = {
 
-  // store app state here
-  state: 'active',
-
-  initialize: function() {
-  
-    document.addEventListener("pause", function() { app.state = 'background' }, false);
-    document.addEventListener("resume", function() { app.state = 'active' }, false);
+  onDeviceReady: function() {
     
-    AppCenter.Push.addEventListener('notificationReceived', function(pushNotification) {
-      var message = pushNotification.message;
-      var title = pushNotification.title;
+    var onNotificationReceived = function(pushNotification) {
+        var message = pushNotification.message;
+        var title = pushNotification.title;
 
-      if (message === null || message === undefined) {
-        // Android messages received in the background don't include a message. On Android, that fact can be used to
-        // check if the message was received in the background or foreground. For iOS the message is always present.
-        title = 'Android background';
-        message = '<empty>';
-      }
-  
-      // Custom name/value pairs set in the App Center web portal are in customProperties
-      if (pushNotification.customProperties && Object.keys(pushNotification.customProperties).length > 0) {
-        message += '\nCustom properties:\n' + JSON.stringify(pushNotification.customProperties);
-      }  
-  
-      if (AppState.currentState === 'active') {
-        // you can alternatively use notification.alert from cordova-plugin-dialogs or something else
+        if (message === null || message === undefined) {
+            // Android messages received in the background don't include a message. On Android, that fact can be used to
+            // check if the message was received in the background or foreground. For iOS the message is always present.
+            title = 'Android background';
+            message = '<empty>';
+        }
+
+        // Custom name/value pairs set in the App Center web portal are in customProperties
+        if (pushNotification.customProperties && Object.keys(pushNotification.customProperties).length > 0) {
+            message += '\nCustom properties:\n' + JSON.stringify(pushNotification.customProperties);
+        }
+        
         console.log(title, message);
-      }  
-      else {
-        // Sometimes the push callback is received shortly before the app is fully active in the foreground.
-        // In this case you'll want to save off the notification info and wait until the app is fully shown
-        // in the foreground before displaying any UI. You could use 
-        // document.addEventListener("pause") and document.addEventListener("resume") to be notified
-        // when the app is fully in the foreground.
-      }
-    });      
-    },
+    }
+
+    AppCenter.Push.addEventListener('notificationReceived', onNotificationReceived);    
   
     // ...
+    
+  },  
 
 };
 
