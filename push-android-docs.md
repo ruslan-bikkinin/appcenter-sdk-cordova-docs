@@ -33,10 +33,16 @@ cordova plugin add cordova-plugin-appcenter-push
 App Center Push SDK requires the **Sender ID** obtained in the "Prerequisites" section. Add following preference to `android` platform in your `config.xml`:
 
 ```js
-<preference name="FIREBASE_SENDER_ID" value="{Your Sender ID}" />
+<preference name="FIREBASE_SENDER_ID" value="'{Your Sender ID}'" />
 ```
 
-Make sure that you have replaced `{Your Sender ID}` with the **Sender ID** obtained in the "Prerequisites" section. Please check out the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application yet.
+Make sure that you have replaced `{Your Sender ID}` with the **Sender ID** obtained in the "Prerequisites" section. 
+
+> Note
+>
+> It is important to surround `{Your Sender ID}` with single quotes because there is a bug in android platform that leads to incorrect interpretation of numerical strings (such format Firebase uses for **Sender ID**). Otherwise, your push notifications may not be working.
+
+Please check out the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application yet.
 
 ## Intercept push notifications
 
