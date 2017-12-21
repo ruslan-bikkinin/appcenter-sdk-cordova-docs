@@ -23,7 +23,7 @@ var error = function(error) {
 AppCenter.Analytics.trackEvent('Video clicked', { Category: 'Music', FileName: 'favorite.avi' }, success, error);
 ```
 
-This function uses third parameter as success callback which returns an empty string and fourth parameter as error callback which returns the error.
+This function uses third parameter as success callback which returns an empty string and fourth parameter as error callback which returns an error.
 
 Properties for events are entirely optional. If you just want to track an event, use this sample instead:
 
@@ -40,7 +40,7 @@ AppCenter.Analytics.trackEvent('Video clicked', success, error);
 
 ## Enable or disable App Center Analytics at runtime
 
-You can enable and disable App Center Analytics at runtime. If you disable it, the SDK will not collect any more analytics information for the app.
+You can enable and disable App Center Analytics at runtime. If you disable it, the SDK will not collect analytics information for the app anymore.
 
 ```js
 var success = function() {
@@ -53,8 +53,8 @@ var error = function(error) {
 AppCenter.Analytics.setEnabled(false, success, error);
 ```
 
-This function uses second parameter as success callback which returns an empty string and third parameter as error callback which returns the error.
-To enable App Center Analytics again, use the same API but pass true as a parameter.
+This function uses second parameter as success callback which returns an empty string and third parameter as error callback which returns an error.
+To enable App Center Analytics again, use the same API but pass `true` as a parameter.
 
 ```js
 var success = function() {
@@ -69,7 +69,7 @@ AppCenter.Analytics.setEnabled(true, success, error);
 
 ## Check if App Center Analytics is enabled
 
-You can also check if App Center Analytics is enabled or not.
+You can also check whether App Center Analytics is enabled.
 
 ```js
 var success = function(result) {
@@ -82,7 +82,7 @@ var error = function(error) {
 AppCenter.Analytics.isEnabled(success, error);
 ```
 
-This function uses first parameter as success callback which returns a `boolean` and second parameter as error callback which returns the error.
+This function uses first parameter as success callback which returns a `boolean` and second parameter as error callback which returns an  error.
 
 ## Wait for JS to enable App Center Analytics
 
@@ -92,7 +92,7 @@ In some cases, an application may want to ask users whether they want to share a
 <preference name="APPCENTER_ANALYTICS_ENABLE_IN_JS" value="true" />
 ```
 
-This means that for any information to be sent to App Center (even basic session information), the developer must first enable App Center Analytics inside the app by adding the following line to their code.
+This means that for any information to be sent to App Center (even basic session information), the developer must first enable App Center Analytics inside the app by adding the following line to his code.
 
 
 ```js
