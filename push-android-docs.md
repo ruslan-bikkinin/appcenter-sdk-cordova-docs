@@ -40,7 +40,7 @@ Make sure that you have replaced `{Your Sender ID}` with the **Sender ID** obtai
 
 > Note
 >
-> It is important to surround `{Your Sender ID}` with single quotes because there is a bug in android platform that leads to incorrect interpretation of numerical strings (such format Firebase uses for **Sender ID**). Otherwise, your push notifications may not be working.
+> It is important to surround `{Your Sender ID}` with single quotes because there is a [bug](https://issuetracker.google.com/issues/37009529) in android platform that leads to incorrect interpretation of numerical strings (such format Firebase uses for **Sender ID**). Otherwise, your push notifications may not be working.
 
 Please check out the [Get started__TODO_REFER_TO_Sdl\Getting Started\Cordova]() section if you haven't set up and started the SDK in your application yet.
 
