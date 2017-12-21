@@ -12,12 +12,6 @@ App Center Crashes provides you with an API to generate a test crash for easy te
 Appcenter.Crashes.generateTestCrash();
 ```
 
-It's also easy to generate a JavaScript crash. Add the following line to your code, which throws a JavaScript error and causes a crash.
-
-```js
-throw new Error('This is a test javascript crash!');
-```
-
 > Tip
 >
 > Your Cordova app needs to be compiled in release mode for this crash to be sent to App Center.
